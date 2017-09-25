@@ -4,6 +4,7 @@ require.config({
     //给js文件 定义一个路径别名
     jquery: 'jquery/jquery.min',
     cookie: 'jquery-cookie/jquery.cookie',
+    template:'artTemplate/template-web',
     common: '../js/common', //是common.js的文件模块化define
     login: '../js/login'
   }

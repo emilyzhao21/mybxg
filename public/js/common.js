@@ -1,4 +1,5 @@
-define(['jquery', 'cookie'], function ($) {
+define(['jquery',  'template','cookie'], function ($,template) {
+  //template需要传入参数
   /* NProgress.start();
   NProgress.done(); */
 
@@ -31,7 +32,19 @@ define(['jquery', 'cookie'], function ($) {
   // 设置用户头像信息
   var loginInfo = $.cookie('loginInfo');
   loginInfo = loginInfo && JSON.parse(loginInfo);
+  //使用模板引擎添加用户头像信息
+  var tpl = '<div class="avatar img-circle">' +
+    '<img src="{{tc_avatar}}">' +
+    '</div>' +
+    '<h4>{{tc_name}}</h4>';
+  /* 第二种方法：var render = template.compile(tpl);//编译模板
+  var html = render(data);//渲染 */
+  /* 第三种方法：var html = template.render(tpl,data) */
+  /* 模板引擎的两种方法：1.script标签中 2.标签字符串拼接 */
+
+  var html = template.render(tpl, loginInfo);
+  $('#headIconTpl').html(html);
   // 设置用户的头像信息
-  $('.aside .profile img').attr('src', loginInfo.tc_avatar);
-  $('.aside .profile h4').html(loginInfo.tc_name);
+  /*   $('.aside .profile img').attr('src', loginInfo.tc_avatar);
+    $('.aside .profile h4').html(loginInfo.tc_name); */
 });
