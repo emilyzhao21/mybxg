@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('/views/common/style.html')?>
 </head>
+
 <body>
-    
+
     <!-- 侧边栏 -->
     <?php include('/views/common/aside.html')?>
     <!-- 主体 -->
@@ -47,8 +49,8 @@
                                 <th>操作</th>
                             </tr>
                         </thead>
-                        <tbody id='tbodyMsg' >
-                            
+                        <tbody id='tbodyMsg'>
+
                         </tbody>
                     </table>
                 </div>
@@ -68,8 +70,10 @@
                     <table class="table table-bordered table-condensed">
                         <tbody>
                             <tr>
-                                <th>姓名:</th><td>赵玉川</td>
-                                <th>职位:</th><td colspan="3">讲师</td>
+                                <th>姓名:</th>
+                                <td>赵玉川</td>
+                                <th>职位:</th>
+                                <td colspan="3">讲师</td>
                                 <td rowspan="4" width="128">
                                     <div class="avatar">
                                         <img src="./images/default.png" alt="">
@@ -77,19 +81,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>花名:</th><td>麻衣长老</td>
-                                <th>出生日期:</th><td colspan="3">2015-11-13</td>
+                                <th>花名:</th>
+                                <td>麻衣长老</td>
+                                <th>出生日期:</th>
+                                <td colspan="3">2015-11-13</td>
                             </tr>
                             <tr>
-                                <th>性别:</th><td>男</td>
-                                <th>出生日期:</th><td colspan="3">1985-05-25</td>
+                                <th>性别:</th>
+                                <td>男</td>
+                                <th>出生日期:</th>
+                                <td colspan="3">1985-05-25</td>
                             </tr>
                             <tr>
-                                <th>手机号码:</th><td colspan="2">13051524959</td>
-                                <th>邮箱:</th><td colspan="2">zhaoyuchuan@itcast.cn</td>
+                                <th>手机号码:</th>
+                                <td colspan="2">13051524959</td>
+                                <th>邮箱:</th>
+                                <td colspan="2">zhaoyuchuan@itcast.cn</td>
                             </tr>
                             <tr>
-                                <th>籍贯:</th><td colspan="6">河北省 保定市 曲阳县</td>
+                                <th>籍贯:</th>
+                                <td colspan="6">河北省 保定市 曲阳县</td>
                             </tr>
                             <tr>
                                 <td colspan="7">
@@ -114,26 +125,30 @@
     </script>
     <script type='text/html' id='teacherListTpl'>
         {{each result as item i}}
-            <tr>
-                <td>{{i+1}}</td>
-                <td>{{item.tc_name}}</td>
-                <td>{{item.tc_roster}}</td>
-                <td>{{item.tc_join_date}}</td>
-                <td>
-                    {{if item.tc_gender == 1}}
-                        女
-                    {{else if item.tc_gender == 0}}
-                        男
-                    {{/if}}
-                </td>
-                <td>{{item.tc_cellphone}}</td>
-                <td>
-                    <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
-                    <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{item.tc_name}}</td>
+            <td>{{item.tc_roster}}</td>
+            <td>{{item.tc_join_date}}</td>
+            <td>
+                {{if item.tc_gender == 1}} 女 {{else if item.tc_gender == 0}} 男 {{/if}}
+            </td>
+            <td>{{item.tc_cellphone}}</td>
+            <td data-tc-id={{item.tc_id}} data-tc-status={{item.tc_status}}>
+                <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
+                <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+                <!-- eod enable or disenable -->
+                <a href="javascript:;" class="btn btn-warning btn-xs eod">
+                        {{if item.tc_status == 0}}
+                        启用
+                        {{else}}
+                        注销
+                        {{/if}}
+                    </a>
+            </td>
+        </tr>
         {{/each}}
     </script>
 </body>
+
 </html>
