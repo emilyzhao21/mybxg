@@ -6,6 +6,7 @@ require.config({
     cookie: 'jquery-cookie/jquery.cookie',
     template:'artTemplate/template-web',
     common: '../js/common', //是common.js的文件模块化define
-    login: '../js/login'
+    login: '../js/login',
+    teacherList:'../js/teacher-list'
   }
 });

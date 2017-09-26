@@ -12,7 +12,7 @@
   //默认文件目录
   $dir = 'main';
   //默认文件夹名称
-  $filename = 'login';
+  $filename = 'index';
 
   //路由优化
   //$_SERVER['PATH_INFO'] 获取url的后缀，即/以后的地址信息，包括/
@@ -37,3 +37,4 @@ if (array_key_exists('PATH_INFO', $_SERVER)) {
     }
 }
   include('./views/'.$dir.'/'.$filename.'.html');
+?>
