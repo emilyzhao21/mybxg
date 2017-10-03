@@ -6,9 +6,11 @@ require.config({
     cookie: 'jquery-cookie/jquery.cookie',
     template: 'artTemplate/template-web',
     bootstrap: 'bootstrap/js/bootstrap',
+    util:'../js/util',
     common: '../js/common', //是common.js的文件模块化define
     login: '../js/login',
-    teacherList: '../js/teacher-list'
+    teacherList: '../js/teacher-list',
+    teacherAdd:'../js/teacher-add'
   },
   shim: {
     //bootstrap不是标准模块，依赖jQuery，使用shim属性将非标准模块转化为标准模块
